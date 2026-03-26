@@ -5,7 +5,7 @@ class EduCourseInstance(models.Model):
     _name = "edu.course.instance"
     _description = "Instances of the Courses"
 
-    name = fields.Char(string="Curso", compute="_compute_instance_name", store=True)
+    name = fields.Char(string="Curso", compute="_compute_instance_name")
     course_id = fields.Many2one(string="Curso", comodel_name="edu.course")
     season_id = fields.Many2one(string="Ciclo lectivo", comodel_name="edu.season")
     period = fields.Selection(
@@ -41,6 +41,3 @@ class EduCourseInstance(models.Model):
                 rec.name = f"{rec.course_id.name} - {rec.season_id.name}"
             else:
                 rec.name = "Nueva Instancia"
-
-    def _call_attendance_wizard(self):
-        return {}

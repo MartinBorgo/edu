@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_edu_manager" model="res.groups">
+        <field name="name">Education Manager</field>
+        <field name="comment">The user will be able to create and edit every model in the module</field>
+        <field name="user_ids" eval="[(4, ref('base.user_admin')), (4, ref('base.user_root'))]"/>
+    </record>
+
+    <record id="group_edu_teacher" model="res.groups">
+        <field name="name">Teacher</field>
+        <field name="comment">This user will be able to see student data manage classes and assistance</field>
+    </record>
+</odoo>

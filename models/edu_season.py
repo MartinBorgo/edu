@@ -9,5 +9,5 @@ class EduSeason(models.Model):
     course_instance_ids = fields.One2many(
         string="Cursos impartidos",
         comodel_name="edu.course.instance",
-        reverse_name="season_id",
+        inverse_name="season_id",
     )

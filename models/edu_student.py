@@ -25,10 +25,10 @@ class EduStudent(models.Model):
     student_history_ids = fields.One2many(
         string="Cursos realizados",
         comodel_name="edu.student.history",
-        reverse_name="student_id",
+        inverse_name="student_id",
     )
     class_assistance_ids = fields.One2many(
         string="Asistencias a las clases",
         comodel_name="edu.class.assistance",
-        reverse_name="student_id",
+        inverse_name="student_id",
     )

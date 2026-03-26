@@ -6,11 +6,14 @@ class EduAttendanceWizard(models.TransientModel):
     _description = "Wizards which generate assistance records"
 
     course_instance_id = fields.Many2one(
-        string="Curso", comodel_name="edu.course.instance"
+        string="Curso",
+        comodel_name="edu.course.instance"
     )
     date = fields.Date(string="Fecha de la clase", default=fields.Date.today)
     lines = fields.One2many(
-        string="Asistencias", comodel_name="edu.attendance.line.wizard"
+        string="Asistencias",
+        comodel_name="edu.attendance.line.wizard",
+        inverse_name="wizard_id"
     )
 
     @api.model

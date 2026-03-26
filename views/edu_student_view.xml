@@ -1,4 +1,4 @@
-<? xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <!-- Form view -->
     <record id="edu_student_form_view" model="ir.ui.view">
@@ -21,13 +21,13 @@
                         </group>
                         <group id="extra_data_group">
                             <field name="living_place"/>
-                            <field name="max_education_level"/>
+                            <field name="max_educative_level"/>
                             <field name="photo" widget="image" class="oe_avatar" options="{size: [90, 90]}"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Historial">
-                            <field name="student_history_id" readonly="1">
+                            <field name="student_history_ids" readonly="1">
                                 <list>
                                     <field name="season_id"/>
                                     <field name="course_instance_id"/>

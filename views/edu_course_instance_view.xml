@@ -1,4 +1,4 @@
-<? xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <!-- Form view -->
     <record id="edu_course_instance_form_view" model="ir.ui.view">
@@ -11,7 +11,7 @@
                             string="Registrar asistencia"
                             type="action"
                             class="btn-primary"/>
-                </header>
+				</header>
                 <sheet>
                     <div class="oe_title">
                         <label for="name" string="Curso"/>

@@ -1,4 +1,4 @@
-<? xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <!-- Form view -->
     <record id="edu_season_form_view" model="ir.ui.view">
@@ -16,7 +16,7 @@
     </record>
 
     <!-- List view -->
-    <record id="edu_season_list_view" model="edu.season">
+    <record id="edu_season_list_view" model="ir.ui.view">
         <field name="name">edu.season.list</field>
         <field name="model">edu.season</field>
         <field name="arch" type="xml">

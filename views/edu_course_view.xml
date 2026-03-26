@@ -1,7 +1,7 @@
-<? xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <!-- Form view -->
-    <record id="edu_course_form_view" model="edu.course">
+    <record id="edu_course_form_view" model="ir.ui.view">
         <field name="name">edu.course.form</field>
         <field name="model">edu.course</field>
         <field name="arch" type="xml">
@@ -26,7 +26,7 @@
                 </sheet>
                 <notebook>
                     <page string="Contenidos a desarrollar">
-                        <field name="content" widget="html" options="{'colavorative': True, 'style_inline': True}"/>
+                        <field name="content"/>
                     </page>
                 </notebook>
             </form>
@@ -34,7 +34,7 @@
     </record>
 
     <!-- List view -->
-    <record id="edu_course_list_view" model="edu.course">
+    <record id="edu_course_list_view" model="ir.ui.view">
         <field name="name">edu.course.list</field>
         <field name="model">edu.course</field>
         <field name="arch" type="xml">

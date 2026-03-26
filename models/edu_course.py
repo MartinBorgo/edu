@@ -1,7 +1,7 @@
 from odoo import fields, models
 
 
-class EduCourse(models.Models):
+class EduCourse(models.Model):
     _name = "edu.course"
     _description = "Courses"
 
@@ -28,7 +28,7 @@ class EduCourse(models.Models):
         column2="teacher_id",
     )
     course_instance_ids = fields.One2many(
-        string="Impartido durante",
+        string="Instancias impartidas",
         comodel_name="edu.course.instance",
         inverse_name="course_id",
     )
