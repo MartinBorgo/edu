@@ -1,0 +1,68 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Form view -->
+    <record id="edu_student_form_view" model="ir.ui.view">
+        <field name="name">edu.student.form</field>
+        <field name="model">edu.student</field>
+        <field name="arch" type="xml">
+            <form string="Estudiante">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Nombre del Estudiante"/>
+                        <h1>
+                            <field name="name" placeholder="Ej. Juan Pérez"/>
+                        </h1>
+                    </div>
+                    <group id="root_group">
+                        <group id="personal_data_group">
+                            <field name="dni"/>
+                            <field name="phone"/>
+                            <field name="birthday"/>
+                        </group>
+                        <group id="extra_data_group">
+                            <field name="living_place"/>
+                            <field name="max_education_level"/>
+                            <field name="photo" widget="image" class="oe_avatar" options="{size: [90, 90]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Historial">
+                            <field name="student_history_id" readonly="1">
+                                <list>
+                                    <field name="season_id"/>
+                                    <field name="course_instance_id"/>
+                                    <field name="student_state"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- List view -->
+    <record id="edu_student_list_view" model="ir.ui.view">
+        <field name="name">edu.student.list</field>
+        <field name="model">edu.student</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="phone"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="edu_student_action" model="ir.actions.act_window">
+        <field name="name">Estudiantes</field>
+        <field name="res_model">edu.student</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No existen estudiantes cargados. Crea algunos
+            </p>
+        </field>
+    </record>
+</odoo>

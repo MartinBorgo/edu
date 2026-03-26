@@ -1,0 +1,54 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Form view -->
+    <record id="edu_course_form_view" model="edu.course">
+        <field name="name">edu.course.form</field>
+        <field name="model">edu.course</field>
+        <field name="arch" type="xml">
+            <form string="Curso">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Nombre del Curso"/>
+                        <h1>
+                            <field name="name" placeholder="Ej. Electricidad"/>
+                        </h1>
+                    </div>
+                    <group id="root_group">
+                        <group id="course_data_group">
+                            <field name="teacher_ids"/>
+                            <field name="class_days"/>
+                        </group>
+                        <group id="hours_data_group">
+                            <field name="start_hour" widget="float_time"/>
+                            <field name="end_hour" widget="float_time"/>
+                        </group>
+                    </group>
+                </sheet>
+                <notebook>
+                    <page string="Contenidos a desarrollar">
+                        <field name="content" widget="html" options="{'colavorative': True, 'style_inline': True}"/>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <!-- List view -->
+    <record id="edu_course_list_view" model="edu.course">
+        <field name="name">edu.course.list</field>
+        <field name="model">edu.course</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="teacher_ids"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="edu_course_action" model="ir.actions.act_window">
+        <field name="name">Cursos</field>
+        <field name="res_model">edu.course</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

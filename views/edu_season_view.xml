@@ -1,0 +1,35 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Form view -->
+    <record id="edu_season_form_view" model="ir.ui.view">
+        <field name="name">edu.season.form</field>
+        <field name="model">edu.season</field>
+        <field name="arch" type="xml">
+            <form string="Ciclo lectivo">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- List view -->
+    <record id="edu_season_list_view" model="edu.season">
+        <field name="name">edu.season.list</field>
+        <field name="model">edu.season</field>
+        <field name="arch" type="xml">
+            <list string="Ciclos lectivos" editable="top">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="edu_season_action" model="ir.actions.act_window">
+        <field name="name">Ciclos lectivos</field>
+        <field name="res_model">edu.season</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
