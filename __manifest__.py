@@ -1,5 +1,5 @@
 {
-    "name": "Educatión",
+    "name": "Education",
     "summery": "An education platform to track students",
     "author": "Martin Borgo",
     "category": "Uncategorized",
@@ -17,6 +17,7 @@
         "views/edu_student_view.xml",
         "views/edu_course_view.xml",
         "views/edu_course_instance_view.xml",
+        "views/edu_class_view.xml",
         "views/menu.xml",
     ],
     "license": "LGPL-3",

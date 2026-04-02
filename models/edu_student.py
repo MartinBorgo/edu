@@ -5,12 +5,12 @@ class EduStudent(models.Model):
     _name = "edu.student"
     _description = "Students"
 
-    name = fields.Char(string="Nombre completo y apellido")
+    name = fields.Char(string="Nombre completo")
     photo = fields.Binary(string="Foto")
     dni = fields.Integer(string="Número de documento")
     birthday = fields.Date(string="Fecha de nacimiento")
     living_place = fields.Char(string="Domicilio")
-    phone = fields.Integer(string="Número de teléfono")
+    phone = fields.Char(string="Número de teléfono")
     max_educative_level = fields.Selection(
         string="Máximo nivel edicativo",
         selection=[

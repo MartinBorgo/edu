@@ -5,50 +5,62 @@
         <field name="name">edu.course.instance.form</field>
         <field name="model">edu.course.instance</field>
         <field name="arch" type="xml">
-            <form string="Instancia de curso">
+            <form string="Habilitación de curso">
                 <header>
-                    <button name="%(edu.edu_attendance_wizard_action)d"
-                            string="Registrar asistencia"
-                            type="action"
-                            class="btn-primary"/>
+                    <button
+                        string="Registrar asistencia"
+                        name="%(edu.edu_attendance_wizard_action)d"
+                        type="action"
+                        class="btn-primary"
+                    />
 				</header>
                 <sheet>
                     <div class="oe_title">
-                        <label for="name" string="Curso"/>
+                        <label for="name" string="Curso" />
                         <h1>
-                            <field name="name" readonly="1"/>
+                            <field name="name" readonly="1" />
                         </h1>
                     </div>
                     <group id="root_group">
                         <group id="lvl_1_group">
-                            <field name="season_id"/>
-                            <field name="course_id"/>
-                            <field name="period"/>
+                            <field name="season_id" />
+                            <field name="course_id" />
+                            <field name="period" />
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Alumnos">
+                            <field name="student_ids">
+                                <list editable="top">
+                                    <field name="name" />
+                                    <field name="phone" />
+                                    <field name="max_educative_level" />
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Clases">
+                            <field name="class_ids">
+                                <list create="0">
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notas de estudiantes">
+                            <field name="student_history_ids">
+                                <list create="0">
+                                    <field name="student_id"/>
+                                    <field name="student_state"
+                                        widget="badge"
+                                        decoration-success="student_state == 'pass'"
+                                        decoration-danger="student_state == 'not_pass'"
+                                        decoration-info="student_state == 'attending'"
+                                        decoration-warning="student_state == 'give_up'"
+                                    />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
-                <notebook>
-                    <page string="Alumnos">
-                        <field name="student_ids">
-                            <list editable="top">
-                                <field name="name"/>
-                                <field name="phone"/>
-                                <field name="max_educative_level"/>
-                            </list>
-                        </field>
-                    </page>
-                    <page string="Clases">
-                        <field name="class_ids"/>
-                    </page>
-                    <page string="Notas de estudiantes">
-                        <field name="student_history_ids">
-                            <list editable="top">
-                                <field name="student_id"/>
-                                <field name="student_state"/>
-                            </list>
-                        </field>
-                    </page>
-                </notebook>
             </form>
         </field>
     </record>
@@ -58,16 +70,27 @@
         <field name="name">edu.course.instance.list</field>
         <field name="model">edu.course.instance</field>
         <field name="arch" type="xml">
-            <list string="Cursos en progreso">
-                <field name="name"/>
+            <list string="Cursos en progreso" create="0">
+                <field name="name" />
             </list>
         </field>
     </record>
 
     <!-- Action -->
-    <record id="edu_course_instance_action" model="ir.actions.act_window">
-        <field name="name">Habilitar curso</field>
+    <record id="edu_course_instance_general_action" model="ir.actions.act_window">
+        <field name="name">Cursos habilitados</field>
         <field name="res_model">edu.course.instance</field>
         <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No existen cursos habilitados.
+            </p>
+        </field>
+    </record>
+
+    <record id="edu_course_instance_form_action" model="ir.actions.act_window">
+        <field name="name">Crear instancia de curso</field>
+        <field name="res_model">edu.course.instance</field>
+        <field name="view_mode">form</field>
     </record>
 </odoo>

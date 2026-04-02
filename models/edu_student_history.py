@@ -5,7 +5,12 @@ class EduStudentHistory(models.Model):
     _name = "edu.student.history"
     _description = "Student History"
 
-    season_id = fields.Many2one(string="Ciclo lectivo", comodel_name="edu.season")
+    season_id = fields.Many2one(
+        string="Ciclo lectivo",
+        comodel_name="edu.season",
+        related="course_instance_id.season_id",
+        store=True
+    )
     course_instance_id = fields.Many2one(
         string="Curso", comodel_name="edu.course.instance"
     )

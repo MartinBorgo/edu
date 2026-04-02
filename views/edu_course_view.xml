@@ -8,27 +8,26 @@
             <form string="Curso">
                 <sheet>
                     <div class="oe_title">
-                        <label for="name" string="Nombre del Curso"/>
+                        <label for="name" string="Nombre del Curso" />
                         <h1>
-                            <field name="name" placeholder="Ej. Electricidad"/>
+                            <field name="name" placeholder="Ej. Electricidad" />
                         </h1>
                     </div>
                     <group id="root_group">
                         <group id="course_data_group">
-                            <field name="teacher_ids"/>
-                            <field name="class_days"/>
-                        </group>
-                        <group id="hours_data_group">
-                            <field name="start_hour" widget="float_time"/>
-                            <field name="end_hour" widget="float_time"/>
+                            <field name="teacher_ids" widget="many2many_tags" />
+                            <field name="student_limit" />
+                            <field name="class_days" />
+                            <field name="start_hour" widget="float_time" />
+                            <field name="end_hour" widget="float_time" />
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Programa de contenidos">
+                            <field name="content" />
+                        </page>
+                    </notebook>
                 </sheet>
-                <notebook>
-                    <page string="Contenidos a desarrollar">
-                        <field name="content"/>
-                    </page>
-                </notebook>
             </form>
         </field>
     </record>
@@ -39,8 +38,8 @@
         <field name="model">edu.course</field>
         <field name="arch" type="xml">
             <list>
-                <field name="name"/>
-                <field name="teacher_ids"/>
+                <field name="name" />
+                <field name="teacher_ids" />
             </list>
         </field>
     </record>
@@ -50,5 +49,10 @@
         <field name="name">Cursos</field>
         <field name="res_model">edu.course</field>
         <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No existen cursos cargados.
+            </p>
+        </field>
     </record>
 </odoo>

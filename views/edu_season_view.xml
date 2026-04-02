@@ -31,5 +31,10 @@
         <field name="name">Ciclos lectivos</field>
         <field name="res_model">edu.season</field>
         <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No existen ciclos lectivos cargados.
+            </p>
+        </field>
     </record>
 </odoo>

@@ -1,35 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <menuitem id="edu_root_menu" 
-              name="Gestión de Cursos" 
-              sequence="10"/>
-
-    <menuitem id="season_menu" 
-              name="Ciclos lectivos" 
-              parent="edu_root_menu" 
-              action="edu_season_action" 
-              sequence="10"/>
-
-    <menuitem id="student_menu" 
-              name="Estudiantes" 
-              parent="edu_root_menu" 
-              action="edu_student_action" 
-              sequence="20"/>
-
-    <menuitem id="course_menu" 
-              name="Cursos" 
-              parent="edu_root_menu" 
-              sequence="30"/>
-
-    <menuitem id="course_menu_item" 
-              name="Todos los cursos" 
-              parent="course_menu" 
-              action="edu_course_action" 
-              sequence="10"/>
-
-    <menuitem id="course_instance_item" 
-              name="Mis cursos" 
-              parent="course_menu" 
-              action="edu_course_instance_action" 
-              sequence="20"/>
+    <!-- Navigator bar -->
+    <menuitem
+        id="edu_root_menu"
+        name="Gestión de Cursos"
+        sequence="10"
+    />
+    <!-- Navigator bar items -->
+    <menuitem
+        id="season_menu"
+        name="Ciclos lectivos"
+        parent="edu_root_menu"
+        action="edu_season_action"
+        sequence="10"
+    />
+    <menuitem
+        id="student_menu"
+        name="Estudiantes"
+        parent="edu_root_menu"
+        action="edu_student_action"
+        sequence="20"
+    />
+    <menuitem
+        id="course_menu"
+        name="Cursos"
+        parent="edu_root_menu"
+        sequence="30"
+    />
+    <!-- Menu items -->
+    <menuitem
+        id="course_menu_item"
+        name="Todos los cursos"
+        parent="course_menu"
+        action="edu_course_action"
+        sequence="10"
+    />
+    <menuitem
+        id="course_instance_form_item"
+        name="Habilitar curso"
+        parent="course_menu"
+        action="edu_course_instance_form_action"
+        sequence="20"
+    />
+    <menuitem
+        id="course_instance_general_item"
+        name="Cursos habilitados"
+        parent="course_menu"
+        action="edu_course_instance_general_action"
+        sequence="30"
+    />
 </odoo>
