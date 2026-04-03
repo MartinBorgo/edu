@@ -49,4 +49,11 @@
         action="edu_course_instance_general_action"
         sequence="30"
     />
+    <menuitem
+        id="teacher_courses_item"
+        name="Mis cursos"
+        parent="course_menu"
+        action="edu_course_instance_my_courses_action"
+        sequence="40"
+    />
 </odoo>

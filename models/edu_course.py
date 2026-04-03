@@ -21,7 +21,7 @@ class EduCourse(models.Model):
     end_hour = fields.Float(string="Hora de finalización")
     student_limit = fields.Integer(string="Cupo de estudiantes", default=15)
     teacher_ids = fields.Many2many(
-        string="Capacitador/es",
+        string="Capacitador",
         comodel_name="res.users",
         relation="course_teacher_rel",
         column1="course_id",

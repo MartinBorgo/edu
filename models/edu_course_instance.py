@@ -31,7 +31,11 @@ class EduCourseInstance(models.Model):
     student_history_ids = fields.One2many(
         string="Acta de notas",
         comodel_name="edu.student.history",
-        inverse_name="course_instance_id",
+        inverse_name="course_instance_id"
+    )
+    is_teacher = fields.Boolean(
+        compute="_compute_is_theacher",
+        search="_search_is_teacher"
     )
 
     @api.model_create_multi
@@ -75,3 +79,11 @@ class EduCourseInstance(models.Model):
                 rec.name = f"{rec.course_id.name} - {period_label} - {rec.season_id.name}"
             else:
                 rec.name = "Nueva Instancia"
+
+    @api.depends("course_id.teacher_ids")
+    def _compute_is_theacher(self):
+        for rec in self:
+            rec.is_teacher = self.env.user in rec.course_id.teacher_ids
+
+    def _search_is_teacher(self, operator, value):
+        return [("course_id.teacher_ids", "in", [self.env.user.id])]
