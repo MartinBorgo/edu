@@ -7,18 +7,6 @@ class EduCourse(models.Model):
 
     name = fields.Char(string="Nombre del curso")
     content = fields.Html(string="Programa de contenidos")
-    class_days = fields.Selection(
-        string="Día de cursada",
-        selection=[
-            ("mon", "Lunes"),
-            ("tue", "Martes"),
-            ("wed", "Miercoles"),
-            ("thu", "Jueves"),
-            ("fri", "Viernes"),
-        ],
-    )
-    start_hour = fields.Float(string="Hora de inicio")
-    end_hour = fields.Float(string="Hora de finalización")
     student_limit = fields.Integer(string="Cupo de estudiantes", default=15)
     teacher_ids = fields.Many2many(
         string="Capacitador",

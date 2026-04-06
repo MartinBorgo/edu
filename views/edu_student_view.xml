@@ -15,7 +15,7 @@
                     />
 
                     <div class="oe_title">
-                        <label for="name" string="Nombre del Estudiante" />
+                        <label for="name" string="Nombre completo" />
                         <h1>
                             <field name="name" placeholder="Ej. Juan Pérez" />
                         </h1>

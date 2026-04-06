@@ -12,6 +12,11 @@ class EduClass(models.Model):
         string="Curso",
         comodel_name="edu.course.instance"
     )
+    commission_id = fields.Many2one(
+        string="Comisión",
+        comodel_name="edu.course.commission",
+        domain="[('course_instance_id', '=', course_instance_id)]"
+    )
     assistance_ids = fields.One2many(
         string="Asistencias",
         comodel_name="edu.class.assistance",

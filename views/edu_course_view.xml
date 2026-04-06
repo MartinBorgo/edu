@@ -17,9 +17,6 @@
                         <group id="course_data_group">
                             <field name="teacher_ids" widget="many2many_tags" />
                             <field name="student_limit" />
-                            <field name="class_days" />
-                            <field name="start_hour" widget="float_time" />
-                            <field name="end_hour" widget="float_time" />
                         </group>
                     </group>
                     <notebook>

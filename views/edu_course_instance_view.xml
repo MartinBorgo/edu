@@ -8,6 +8,12 @@
             <form string="Habilitación de curso">
                 <header>
                     <button
+                        string="Crear comisión"
+                        name="%(edu.edu_commission_wizard_action)d"
+                        type="action"
+                        class="btn-secundary"
+                    />
+                    <button
                         string="Registrar asistencia"
                         name="%(edu.edu_attendance_wizard_action)d"
                         type="action"
@@ -35,6 +41,16 @@
                                     <field name="name" />
                                     <field name="phone" />
                                     <field name="max_educative_level" />
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Comisiones">
+                            <field name="commission_ids">
+                                <list create="0" delete="0">
+                                    <field name="name"/>
+                                    <field name="class_days"/>
+                                    <field name="start_hour"/>
+                                    <field name="end_hour"/>
                                 </list>
                             </field>
                         </page>

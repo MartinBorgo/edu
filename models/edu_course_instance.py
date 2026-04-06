@@ -33,6 +33,11 @@ class EduCourseInstance(models.Model):
         comodel_name="edu.student.history",
         inverse_name="course_instance_id"
     )
+    commission_ids = fields.One2many(
+        string="Comisiones",
+        comodel_name="edu.course.commission",
+        inverse_name="course_instance_id"
+    )
     is_teacher = fields.Boolean(
         compute="_compute_is_theacher",
         search="_search_is_teacher"

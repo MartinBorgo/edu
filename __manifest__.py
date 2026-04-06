@@ -12,11 +12,13 @@
         "security/ir.model.access.csv",
         # Wizards
         "wizards/edu_attendance_wizard.xml",
+        "wizards/edu_commission_wizard.xml",
         # Views
         "views/edu_season_view.xml",
         "views/edu_student_view.xml",
         "views/edu_course_view.xml",
         "views/edu_course_instance_view.xml",
+        "views/edu_course_commission_view.xml",
         "views/edu_class_view.xml",
         "views/menu.xml",
     ],
