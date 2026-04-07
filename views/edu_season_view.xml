@@ -7,9 +7,21 @@
         <field name="arch" type="xml">
             <form string="Ciclo lectivo">
                 <sheet>
-                    <group>
-                        <field name="name"/>
-                    </group>
+                    <div class="oe_title">
+                        <label for="name" string="Ciclo lectivo"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page string="Cursos impartidos">
+                            <field name="course_instance_ids" readonly="1">
+                                <list>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -20,7 +32,7 @@
         <field name="name">edu.season.list</field>
         <field name="model">edu.season</field>
         <field name="arch" type="xml">
-            <list string="Ciclos lectivos" editable="top">
+            <list string="Ciclos lectivos">
                 <field name="name"/>
             </list>
         </field>

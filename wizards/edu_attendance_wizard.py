@@ -51,6 +51,8 @@ class EduAttendanceWizard(models.TransientModel):
         self.lines = [(5, 0, 0)] + lines
 
     def action_confirm(self):
+        self.ensure_one()
+
         new_class = self.env["edu.class"].create({
             "date": self.date,
             "course_instance_id": self.course_instance_id.id,

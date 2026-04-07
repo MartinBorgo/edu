@@ -6,7 +6,10 @@ class EduCommissionWizard(models.TransientModel):
     _name = "edu.commission.wizard"
     _description = "Wizard which create course commissions"
 
-    name = fields.Char(string="Comisión")
+    name = fields.Char(
+        string="Comisión",
+        required=True
+    )
     class_days = fields.Selection(
         string="Día de cursada",
         selection=[
@@ -16,9 +19,16 @@ class EduCommissionWizard(models.TransientModel):
             ("thu", "Jueves"),
             ("fri", "Viernes"),
         ],
+        required=True
     )
-    start_hour = fields.Float(string="Hora de inicio de clases")
-    end_hour = fields.Float(string="Hora de finalización de clases")
+    start_hour = fields.Float(
+        string="Hora de inicio de clases",
+        required=True
+    )
+    end_hour = fields.Float(
+        string="Hora de finalización de clases",
+        required=True
+    )
     course_instance_id = fields.Many2one(
         string="Curso",
         comodel_name="edu.course.instance"

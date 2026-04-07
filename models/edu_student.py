@@ -5,12 +5,27 @@ class EduStudent(models.Model):
     _name = "edu.student"
     _description = "Students"
 
-    name = fields.Char(string="Nombre completo")
+    name = fields.Char(
+        string="Nombre completo",
+        required=True
+    )
     photo = fields.Binary(string="Foto")
-    dni = fields.Integer(string="Número de documento")
-    birthday = fields.Date(string="Fecha de nacimiento")
-    living_place = fields.Char(string="Domicilio")
-    phone = fields.Char(string="Número de teléfono")
+    dni = fields.Integer(
+        string="Número de documento",
+        required=True
+    )
+    birthday = fields.Date(
+        string="Fecha de nacimiento",
+        required=True
+    )
+    living_place = fields.Char(
+        string="Domicilio",
+        required=True
+    )
+    phone = fields.Char(
+        string="Número de teléfono",
+        required=True
+    )
     max_educative_level = fields.Selection(
         string="Máximo nivel edicativo",
         selection=[
@@ -21,14 +36,15 @@ class EduStudent(models.Model):
             ("fin_pri", "Primaria completa"),
             ("none_fin_pri", "Primaria incompleta"),
         ],
+        required=True
     )
     student_history_ids = fields.One2many(
         string="Cursos realizados",
         comodel_name="edu.student.history",
-        inverse_name="student_id",
+        inverse_name="student_id"
     )
     class_assistance_ids = fields.One2many(
         string="Asistencias a las clases",
         comodel_name="edu.class.assistance",
-        inverse_name="student_id",
+        inverse_name="student_id"
     )

@@ -12,6 +12,7 @@
                         name="%(edu.edu_commission_wizard_action)d"
                         type="action"
                         class="btn-secundary"
+                        groups="edu.group_edu_manager"
                     />
                     <button
                         string="Registrar asistencia"
@@ -19,6 +20,10 @@
                         type="action"
                         class="btn-primary"
                     />
+                    <field name="state"
+                           widget="statusbar"
+                           options="{'clickable': '1'}"
+                           groups="edu.group_edu_manager"/>
 				</header>
                 <sheet>
                     <div class="oe_title">
@@ -29,28 +34,28 @@
                     </div>
                     <group id="root_group">
                         <group id="lvl_1_group">
-                            <field name="season_id" />
-                            <field name="course_id" />
-                            <field name="period" />
+                            <field name="season_id"/>
+                            <field name="course_id"/>
+                            <field name="period"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Alumnos">
                             <field name="student_ids">
                                 <list editable="top">
-                                    <field name="name" />
-                                    <field name="phone" />
-                                    <field name="max_educative_level" />
+                                    <field name="name"/>
+                                    <field name="phone"/>
+                                    <field name="max_educative_level"/>
                                 </list>
                             </field>
                         </page>
                         <page string="Comisiones">
                             <field name="commission_ids">
-                                <list create="0" delete="0">
+                                <list create="0">
                                     <field name="name"/>
                                     <field name="class_days"/>
-                                    <field name="start_hour"/>
-                                    <field name="end_hour"/>
+                                    <field name="start_hour" widget="float_time"/>
+                                    <field name="end_hour" widget="float_time"/>
                                 </list>
                             </field>
                         </page>
@@ -58,6 +63,7 @@
                             <field name="class_ids">
                                 <list create="0">
                                     <field name="name"/>
+                                    <field name="commission_id"/>
                                 </list>
                             </field>
                         </page>
@@ -97,6 +103,7 @@
         <field name="name">Cursos habilitados</field>
         <field name="res_model">edu.course.instance</field>
         <field name="view_mode">list,form</field>
+        <field name="domain">[('state', '=', 'draft')]</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No existen cursos habilitados.

@@ -34,7 +34,7 @@
                 </notebook>
                 <footer>
                     <button
-                        string="Guardar Asistencia"
+                        string="Crear comisión"
                         name="action_confirm"
                         type="object"
                         class="btn-primary"

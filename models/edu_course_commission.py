@@ -3,7 +3,7 @@ from odoo import fields, models
 
 class EduCourseCommission(models.Model):
     _name = "edu.course.commission"
-    _descripción = "Course commissions"
+    _description = "Course commissions"
 
     name = fields.Char(string="Comisión")
     class_days = fields.Selection(

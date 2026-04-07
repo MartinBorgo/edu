@@ -19,7 +19,7 @@
                     <notebook>
                         <page string="Asistencias">
                             <field name="assistance_ids">
-                                <list>
+                                <list create="0">
                                     <field name="student_id"/>
                                     <field name="assistance"/>
                                 </list>

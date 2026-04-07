@@ -6,9 +6,15 @@ class EduStudentHistory(models.Model):
     _description = "Student History"
 
     course_instance_id = fields.Many2one(
-        string="Curso", comodel_name="edu.course.instance"
+        string="Curso",
+        comodel_name="edu.course.instance",
+        required=True
     )
-    student_id = fields.Many2one(string="Estudiante", comodel_name="edu.student")
+    student_id = fields.Many2one(
+        string="Estudiante",
+        comodel_name="edu.student",
+        required=True
+    )
     student_state = fields.Selection(
         string="Estado",
         selection=[
@@ -18,4 +24,5 @@ class EduStudentHistory(models.Model):
             ("give_up", "Abandono"),
         ],
         default="attending",
+        required=True
     )

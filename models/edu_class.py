@@ -7,7 +7,10 @@ class EduClass(models.Model):
     _description = "Courses Classes"
 
     name = fields.Char(compute="_compute_class_name")
-    date = fields.Date(string="Fecha", default=fields.Date.today)
+    date = fields.Date(
+        string="Fecha",
+        default=fields.Date.today
+    )
     course_instance_id = fields.Many2one(
         string="Curso",
         comodel_name="edu.course.instance"
@@ -27,6 +30,6 @@ class EduClass(models.Model):
     def _compute_class_name(self):
         for rec in self:
             formated_date = format_date(
-                self.env, self.date, lang_code=self.env.user.lang
+                self.env, rec.date, lang_code=self.env.user.lang
             )
             rec.name = f"Clase {formated_date}"

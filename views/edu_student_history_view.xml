@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="edu_student_history_form_view" model="ir.ui.view">
+        <field name="name">edu.student.history.form</field>
+        <field name="model">edu.student.history</field>
+        <field name="arch" type="xml">
+            <form string="Nota de la cursada">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="student_id" string="Alumno" />
+                        <h1>
+                            <field name="student_id" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="course_instance_id" readonly="1"/>
+                        <field name="student_state"
+                            widget="selection"
+                            decoration-success="student_state == 'pass'"
+                            decoration-danger="student_state == 'not_pass'"
+                            decoration-info="student_state == 'attending'"
+                            decoration-warning="student_state == 'give_up'"
+                        />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

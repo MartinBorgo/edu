@@ -6,8 +6,24 @@ class EduCourseInstance(models.Model):
     _description = "Instances of the Courses"
 
     name = fields.Char(string="Curso", compute="_compute_instance_name")
-    course_id = fields.Many2one(string="Curso", comodel_name="edu.course")
-    season_id = fields.Many2one(string="Ciclo lectivo", comodel_name="edu.season")
+    state = fields.Selection(
+        string="Estado del curso",
+        selection=[
+            ("draft", "En curso"),
+            ("done", "Finalizado")
+        ],
+        default="draft"
+    )
+    course_id = fields.Many2one(
+        string="Curso",
+        comodel_name="edu.course",
+        required=True
+    )
+    season_id = fields.Many2one(
+        string="Ciclo lectivo",
+        comodel_name="edu.season",
+        required=True
+    )
     period = fields.Selection(
         string="Trimestre",
         selection=[
@@ -15,6 +31,7 @@ class EduCourseInstance(models.Model):
             ("second", "Segundo trimestre"),
             ("third", "Tercer trimestre"),
         ],
+        required=True
     )
     class_ids = fields.One2many(
         string="Clases impartidas",

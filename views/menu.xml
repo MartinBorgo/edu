@@ -30,7 +30,7 @@
     <!-- Menu items -->
     <menuitem
         id="course_menu_item"
-        name="Todos los cursos"
+        name="Cursos"
         parent="course_menu"
         action="edu_course_action"
         sequence="10"
@@ -41,6 +41,7 @@
         parent="course_menu"
         action="edu_course_instance_form_action"
         sequence="20"
+        groups="edu.group_edu_manager"
     />
     <menuitem
         id="course_instance_general_item"
@@ -48,6 +49,7 @@
         parent="course_menu"
         action="edu_course_instance_general_action"
         sequence="30"
+        groups="edu.group_edu_manager"
     />
     <menuitem
         id="teacher_courses_item"

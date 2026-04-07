@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="edu_class_assistance_form_view" model="ir.ui.view">
+        <field name="name">edu.class.assistance.form</field>
+        <field name="model">edu.class.assistance</field>
+        <field name="arch" type="xml">
+            <form string="Asistencia">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="class_id" string="Asistencia"/>
+                        <h1>
+                            <field name="class_id" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="student_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="assistance"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -8,15 +8,15 @@
             <form string="Comisión">
                 <sheet>
                     <div class="oe_title">
-                        <label for="name" string="Comisión" />
+                        <label for="name" string="Comisión"/>
                         <h1>
-                            <field name="name" readonly="1" />
+                            <field name="name" readonly="1"/>
                         </h1>
                     </div>
                     <group>
                         <field name="class_days"/>
-                        <field name="start_hour"/>
-                        <field name="end_hour"/>
+                        <field name="start_hour" widget="float_time"/>
+                        <field name="end_hour" widget="float_time"/>
                     </group>
                     <notebook>
                         <page string="Miembros">
